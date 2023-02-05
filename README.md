@@ -27,7 +27,7 @@ two thirds -> 2/3
 
 ## Installation
 
-1. clone this repo to `.obsidian/plugins`
+1. clone this repo to `YourObsidianVaultFolder/` `.obsidian/plugins`
 2. Restart Obsidian
 3. enable the plugin in the settings
 

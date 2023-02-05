@@ -1,7 +1,7 @@
 import { Editor, Plugin } from "obsidian";
 import nlp from 'compromise';
 
-export default class InsertLinkPlugin extends Plugin {
+export default class CompromiseTextEdits extends Plugin {
   async onload() {
     this.addCommand({
       id: "pluralize",

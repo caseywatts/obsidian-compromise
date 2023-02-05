@@ -245,5 +245,27 @@ export default class InsertLinkPlugin extends Plugin {
       },
     });
 
+		this.addCommand({
+      id: "numbers-increment",
+      name: "Number Increment",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "=" }], // = because + shares a key
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).numbers().increment().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
+		this.addCommand({
+      id: "numbers-decrement",
+      name: "Number Decrement",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "-" }], //
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).numbers().decrement().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
   }
 }

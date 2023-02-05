@@ -80,5 +80,71 @@ export default class InsertLinkPlugin extends Plugin {
       },
     });
 
+		this.addCommand({
+      id: "sentence-prepend",
+      name: "Sentence Prepend",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "i" }],
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).sentences().prepend("Yeah,").all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
+		this.addCommand({
+      id: "sentence-append",
+      name: "Sentence Append",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "d" }],
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).sentences().append("right").all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
+		this.addCommand({
+      id: "to-lower-case",
+      name: "To Lowercase",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "l" }],
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).toLowerCase().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
+		this.addCommand({
+      id: "to-upper-case",
+      name: "To Uppercase",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "u" }],
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).toUpperCase().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
+		this.addCommand({
+      id: "to-title-case",
+      name: "To Title Case",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "t" }],
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).toTitleCase().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
+		this.addCommand({
+      id: "to-camel-case",
+      name: "To Camel Case",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "c" }],
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).toCamelCase().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
   }
 }

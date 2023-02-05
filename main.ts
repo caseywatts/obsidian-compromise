@@ -223,5 +223,27 @@ export default class InsertLinkPlugin extends Plugin {
     //   },
     // });
 
+		this.addCommand({
+      id: "expand-contractions",
+      name: "Expand Contractions",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "e" }],
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).contractions().expand().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
+		this.addCommand({
+      id: "contract-contractions",
+      name: "Contract Contractions",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "c" }],
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).contract().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
   }
 }

@@ -146,5 +146,49 @@ export default class InsertLinkPlugin extends Plugin {
       },
     });
 
+		this.addCommand({
+      id: "number-to-digits",
+      name: "Number To Digits",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "m" }],
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).numbers().toNumber().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
+		this.addCommand({
+      id: "number-to-cardinal",
+      name: "Number To Cardinal (no th)",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "d" }],
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).numbers().toCardinal().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
+		this.addCommand({
+      id: "number-to-ordinal",
+      name: "Number To Ordinal (th)",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "o" }],
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).numbers().toOrdinal().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
+		this.addCommand({
+      id: "number-to-text",
+      name: "Number To Text",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "x" }],
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).numbers().toText().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
   }
 }

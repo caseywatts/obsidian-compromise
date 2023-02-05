@@ -267,5 +267,27 @@ export default class InsertLinkPlugin extends Plugin {
       },
     });
 
+		this.addCommand({
+      id: "acronym-with-periods",
+      name: "Acronyms With Periods",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "." }], //
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).acronyms().addPeriods().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
+		this.addCommand({
+      id: "acronym-without-periods",
+      name: "Acronyms Without Periods",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "," }], //
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).acronyms().strip().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
   }
 }

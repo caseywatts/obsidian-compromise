@@ -190,5 +190,38 @@ export default class InsertLinkPlugin extends Plugin {
       },
     });
 
+		this.addCommand({
+      id: "fraction-to-decimal",
+      name: "Fraction To Decimal",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "l" }],
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).fractions().toDecimal().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
+		this.addCommand({
+      id: "fraction-to-percentage",
+      name: "Fraction To Percentage",
+			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "n" }],
+      editorCallback: (editor: Editor) => {
+        const selectedText = editor.getSelection();
+				const editedText = nlp(selectedText).fractions().toPercentage().all().text();
+				editor.replaceSelection(editedText);
+      },
+    });
+
+		// this.addCommand({
+    //   id: "percentage-to-fraction",
+    //   name: "Percentage To Fraction",
+		// 	hotkeys: [{ modifiers: ["Mod", "Shift"], key: "n" }],
+    //   editorCallback: (editor: Editor) => {
+    //     const selectedText = editor.getSelection();
+		// 		const editedText = nlp(selectedText).percentages().toFraction().all().text();
+		// 		editor.replaceSelection(editedText);
+    //   },
+    // });
+
   }
 }

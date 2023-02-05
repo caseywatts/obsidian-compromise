@@ -80,27 +80,27 @@ export default class CompromiseTextEdits extends Plugin {
       },
     });
 
-		this.addCommand({
-      id: "sentence-prepend",
-      name: "Sentence Prepend",
-			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "i" }],
-      editorCallback: (editor: Editor) => {
-        const selectedText = editor.getSelection();
-				const editedText = nlp(selectedText).sentences().prepend("Yeah,").all().text();
-				editor.replaceSelection(editedText);
-      },
-    });
+		// this.addCommand({
+    //   id: "sentence-prepend",
+    //   name: "Sentence Prepend",
+		// 	hotkeys: [{ modifiers: ["Mod", "Shift"], key: "i" }],
+    //   editorCallback: (editor: Editor) => {
+    //     const selectedText = editor.getSelection();
+		// 		const editedText = nlp(selectedText).sentences().prepend("Yeah,").all().text();
+		// 		editor.replaceSelection(editedText);
+    //   },
+    // });
 
-		this.addCommand({
-      id: "sentence-append",
-      name: "Sentence Append",
-			hotkeys: [{ modifiers: ["Mod", "Shift"], key: "d" }],
-      editorCallback: (editor: Editor) => {
-        const selectedText = editor.getSelection();
-				const editedText = nlp(selectedText).sentences().append("right").all().text();
-				editor.replaceSelection(editedText);
-      },
-    });
+		// this.addCommand({
+    //   id: "sentence-append",
+    //   name: "Sentence Append",
+		// 	hotkeys: [{ modifiers: ["Mod", "Shift"], key: "d" }],
+    //   editorCallback: (editor: Editor) => {
+    //     const selectedText = editor.getSelection();
+		// 		const editedText = nlp(selectedText).sentences().append("right").all().text();
+		// 		editor.replaceSelection(editedText);
+    //   },
+    // });
 
 		this.addCommand({
       id: "to-lower-case",

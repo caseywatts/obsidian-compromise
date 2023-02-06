@@ -32,6 +32,9 @@ two thirds -> 2/3
 2. Open the command palette (`cmd+P`)
 3. Select the `BRAT: Add a beta plugin for testing` command
 4. Paste `https://github.com/caseywatts/obsidian-compromise` into the pop-up
+5. Go to the `Community plugins` list and search for `Obsidian Compromise` to install AND enable the plugin
+6. Voilá -- try it out with a test command
+	- Type `can't`, highlight that text, then run the command (`cmd+p`) `expand contraction`
 
 ## Installation for Development
 

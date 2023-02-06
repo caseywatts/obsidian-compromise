@@ -25,7 +25,15 @@ two thirds -> 2/3
 2, 3, 4 -> 1, 2, 3
 ```
 
-## Installation
+## Installation for Beta Testing
+
+1. Install [BRAT](obsidian://show-plugin?id=obsidian42-brat
+) from the Community Plugins in Obsidian 
+2. Open the command palette (`cmd+P`)
+3. Select the `BRAT: Add a beta plugin for testing` command
+4. Paste `https://github.com/caseywatts/obsidian-compromise` into the pop-up
+
+## Installation for Development
 
 1. clone this repo to `YourObsidianVaultFolder/` `.obsidian/plugins`
 2. Restart Obsidian
